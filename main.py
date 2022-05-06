@@ -14,12 +14,12 @@ class Egzemplarz():
 def sortowanie(Ksiazka):
     return Ksiazka.tytul
 
-k = 0
 ksiazki = []
 egzemplarze = []
 
 n = input()
 for i in range(0, int(n)):
+    k=0
     temp = eval(input())
     if not ksiazki:
         ksiazki.append(Ksiazka(temp[0], temp[1]))
@@ -28,6 +28,8 @@ for i in range(0, int(n)):
             ks = ksiazki[i]
             if temp[0] != ks.tytul and temp[1] != ks.autor:
                 k=1
+            if temp[0] == ks.tytul and temp[1] == ks.autor:
+                k=0
     if k == 1:
         ksiazki.append(Ksiazka(temp[0], temp[1]))
     egzemplarze.append(Egzemplarz(temp[0], temp[1], temp[2]))
