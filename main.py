@@ -14,6 +14,13 @@ class Egzemplarz():
 def sortowanie(Ksiazka):
     return Ksiazka.tytul
 
+def czyjestwliscie(ksiazki, tytul, autor):
+    for i in range(len(ksiazki)):
+        ks = ksiazki[i]
+        if tytul == ks.tytul and autor == ks.autor:
+            return True
+    return False
+    
 ksiazki = []
 egzemplarze = []
 
@@ -24,14 +31,9 @@ for i in range(0, int(n)):
     if not ksiazki:
         ksiazki.append(Ksiazka(temp[0], temp[1]))
     else:
-        for i in range(len(ksiazki)):
-            ks = ksiazki[i]
-            if temp[0] != ks.tytul and temp[1] != ks.autor:
-                k=1
-            if temp[0] == ks.tytul and temp[1] == ks.autor:
-                k=0
-    if k == 1:
-        ksiazki.append(Ksiazka(temp[0], temp[1]))
+        czyjuzjest = czyjestwliscie(ksiazki, temp[0], temp[1])
+        if czyjuzjest is False:
+            ksiazki.append(Ksiazka(temp[0], temp[1]))
     egzemplarze.append(Egzemplarz(temp[0], temp[1], temp[2]))
 
 ksiazki.sort(key=sortowanie)
