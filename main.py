@@ -41,4 +41,4 @@ for i in range(len(ksiazki)):
         eg = egzemplarze[i]
         if temp.tytul == eg.tytul and temp.autor == eg.autor:
             licznik = licznik + 1
-    print("('"+temp.tytul+"',"+"'"+temp.autor+"',"+licznik)
+    print("('"+temp.tytul+"',"+"'"+temp.autor+"',",licznik)
